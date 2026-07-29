@@ -18,19 +18,40 @@
           Gestión inteligente para el agro moderno
 
         </ion-card-subtitle>
-        <ion-list >
-          <ion-item>
-            <ion-input labelPlacement="floating" value="">
-              <div slot="label">Correo electronico<ion-text color="danger"></ion-text></div>
-            </ion-input>
-          </ion-item>
-             <ion-item>
-            <ion-input labelPlacement="stacked" value="">
-        <div slot="label">Contraseña</div>
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
-          </ion-item>
-        </ion-list>
+  
+          @if(!correoValid()){
+            <ion-item class="login-input-item">
+              <ion-input labelPlacement="floating" value=""  placeholder="ejemplo@hotmail.com"  [(ngModel)]="correo">
+                <div slot="label">Correo electronico<ion-text color="danger"></ion-text></div>
+              </ion-input>
+            </ion-item>
+            <ion-button (click)="checarCorreo()" class="bio-button">
+              Ingresar<ion-icon name="arrow-forward-outline" ></ion-icon>
+            </ion-button>
+          }@else{
+             <ion-item >
+              <ion-input
+                type="password"
+                label="Contraseña"
+                labelPlacement="floating"
+                [(ngModel)]="password">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+              </ion-input>
+            </ion-item>
+                  <ion-button (click)="iniciarSesion()" class="bio-button">
+              Iniciar Sesion<ion-icon name="log-in"></ion-icon>
+            </ion-button>
+          }
+
+        <div class="bio-access">
+       <div class="divider">
+          <span>O acceder con</span>
+        </div>
+          <ion-button expand="block" color="primary" class="bio-button">
+            Acceder con biometría
+          </ion-button>
+          <p class="bio-help">Usa huella o reconocimiento facial para ingresar más rápido.</p>
+        </div>
       </ion-card-content>
       <div class="footer">
          ¿Listo para modernizar tu rancho? <b>Descubre RDA Manager</b>
@@ -39,5 +60,15 @@
   </div>
 </ion-content>
 <ion-footer>
+
+  @if(alert()){
+    <ion-alert
+    [isOpen]="alert()"
+      trigger="present-alert"
+      header="Ingreso invalido"
+      [message]="alertMensaje"
+      [buttons]="alertButtons"
+    ></ion-alert>
+  }
 
 </ion-footer>

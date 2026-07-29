@@ -34,6 +34,65 @@
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.login-input-item {
+  border-radius: 18px;
+  border: 1px solid rgba(76, 100, 139, 0.12);
+  margin: 0.5rem 0 0;
+}
+
+.login-input-item:hover {
+  border-color: rgba(47, 78, 145, 0.18);
+}
+
+.login-input-item ion-label {
+  color: #546985;
+  font-weight: 600;
+}
+
+.login-input-item ion-input {
+  --color: #1f2937;
+  --placeholder-color: #8a9db5;
+}
+
+.login-input-item ion-input::part(native) {
+  color: #1f2937;
+}
+
+.bio-access {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bio-button {
+  border-radius: 16px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ion-color-medium);
+}
+
+.divider span {
+  margin: 0 16px;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
 .ion-card-header {
   display: flex;
   flex-direction: column;

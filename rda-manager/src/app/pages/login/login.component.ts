@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   correoValid=signal(false);
   alert=signal(false)
   alertMensaje = '';
+  headerMensaje=''
   correo = '';
   password = '';
   alertButtons = [
@@ -48,14 +49,21 @@ export class LoginComponent implements OnInit {
     const loading = await this.loadingController.create({
       message: 'Verificando correo...',
     });
-
+    this.alert.set(false)
     await loading.present();
 
     try {
-      // Simula una petición al servidor
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const resp = await firstValueFrom(this.loginService.validarCorreo( this.correo))
+       await loading.dismiss();
       this.correoValid.set(true)
-    } finally {
+  
+    } catch(err:any) {
+      console.log(err)
+      this.alert.set(true);
+      this.headerMensaje='Ingreso invalido'
+      this.alertMensaje = err?.error?.message || 'Credencial inválida';
+      
+    } finally{
       await loading.dismiss();
     }
   }
@@ -68,14 +76,16 @@ export class LoginComponent implements OnInit {
       email: this.correo,
       password: this.password
     }
-    console.log(payload)
+    this.alert.set(false)
     await loading.present();
     try {
-      const resp= await firstValueFrom(this.loginService.login('') )
-    }catch(err){
+      const resp= await firstValueFrom(this.loginService.login(payload) )
+      console.log(resp)
+    }catch(err:any){
       console.log(err)
       this.alert.set(true);
-      this.alertMensaje='Credencial Invalida'
+      this.headerMensaje='Ingreso invalido'
+       this.alertMensaje = err?.error?.message || 'Credencial inválida';
     } finally {
       await loading.dismiss();
     }

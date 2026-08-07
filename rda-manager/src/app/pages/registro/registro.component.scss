@@ -1,0 +1,22 @@
+ion-content {
+  --background: #f5f7fb;
+}
+
+.registro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 24px 16px;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.submit-button {
+  margin-top: 16px;
+}

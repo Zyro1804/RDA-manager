@@ -1,0 +1,43 @@
+<ion-content class="registro-page">
+  <div class="registro-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Crear cuenta</ion-card-title>
+        <ion-card-subtitle>Completa tus datos para registrarte</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form (ngSubmit)="registrar()" #registroForm="ngForm">
+          <ion-item>
+            <ion-label position="stacked">Usuario</ion-label>
+            <ion-input [(ngModel)]="usuario" name="usuario" type="text" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Contraseña</ion-label>
+            <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Nueva contraseña</ion-label>
+            <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Número de teléfono</ion-label>
+            <ion-input [(ngModel)]="telefono" name="telefono" type="tel" required></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" class="submit-button">
+            Registrarme
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

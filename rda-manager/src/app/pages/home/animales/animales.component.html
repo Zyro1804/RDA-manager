@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-barra-busqueda
+  [typeButtonClear]="typeButtonSearchBar"
+  [placeHolderText]="placeHolderText"
+  (valueChange)="buscarAnimal($event)"
+  ></app-barra-busqueda>
+  <div class="example-content">Panel Principal</div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+     <ion-fab-button [routerLink]="['/home/animales/crear']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

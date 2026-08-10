@@ -10,7 +10,7 @@ export class Regsitro {
     
   // Cambia por tu URL
   private readonly apiUrl = environment.url;
-  private readonly crearUrl=`${this.apiUrl}user/crear_usuario`
+  private readonly crearUrl=`${this.apiUrl}/user/crear_usuario`
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +22,7 @@ export class Regsitro {
       password: payload.password,
       isActive:true
     }
+    console.log(this.crearUrl)
     return this.http.post(this.crearUrl,body);
   }
 

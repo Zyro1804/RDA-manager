@@ -28,10 +28,14 @@ export const routes: Routes = [
 
     ]
   },
-    {
-        path:'home/animales/crear',
-        loadComponent: ()=> import('./pages/home/animales/crear/crear.component').then((m)=>m.CrearComponent)
-        },
+  {
+    path:'home/animales/crear',
+    loadComponent: ()=> import('./pages/home/animales/crear/crear.component').then((m)=>m.CrearComponent)
+  },
+  {
+    path:'home/animales/:uuid',
+    loadComponent: ()=> import('./pages/home/animales/animal-info/animal-info.component').then((m)=>m.AnimalInfoComponent)
+  },
   {
     path: 'login',
     loadComponent: () => import('./pages/login/login.component').then((m) => m.LoginComponent),
@@ -49,4 +53,17 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path:'punto_de_venta/home',
+    loadComponent:() => import('./pages/punto_de_venta/home/home.component').then((m)=> m.HomeComponent),
+    children:[
+      {
+        path:'venta',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/venta/venta.component').then((m)=>m.VentaComponent),
+      },
+    ]
+    
+  }
+  
 ];

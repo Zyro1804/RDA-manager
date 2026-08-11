@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { chevronForwardCircle, chevronForwardCircleOutline, chevronForwardOutline } from 'ionicons/icons';
 
+interface Animal {
+  uuid:string,nombre:string,Raza:string,id:string,peso:string,foto:string,estado:string
+}
 @Component({
   selector: 'app-card-animales',
   imports: [IonicModule],
@@ -9,8 +15,20 @@ import { IonicModule } from '@ionic/angular';
 })
 export class CardAnimalesComponent  implements OnInit {
 
-  constructor() { }
+  @Input() animales:any;
+  @Input() cargando = false;
+  constructor(
+    private readonly router : Router
+  ) {
 
-  ngOnInit() {}
+    addIcons({
+      chevronForwardOutline
+   })
+  }
 
+  ngOnInit() {
+  }
+  verAnimal(uuid:string){
+     this.router.navigate(['/home/animales', uuid]);
+  }
 }

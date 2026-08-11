@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Search</ion-title>
+    <ion-title>RDA Manager</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,11 +10,18 @@
   [placeHolderText]="placeHolderText"
   (valueChange)="buscarAnimal($event)"
   ></app-barra-busqueda>
-  <div class="example-content">Panel Principal</div>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="example-content">Panel Principal</div> -->
   <app-tipos-animales
   [tiposAnimales]="tiposAnimales"
+    [cargando]="cargando"
   ></app-tipos-animales>
-  <app-card-animales></app-card-animales>
+  <app-card-animales
+  [animales]="animales"
+  [cargando]="cargando"
+  ></app-card-animales>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
      <ion-fab-button [routerLink]="['/home/animales/crear']">
       <ion-icon name="add"></ion-icon>

@@ -1,10 +1,135 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Card Title</ion-card-title>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-  </ion-card-header>
+@if (cargando) {
 
-  <ion-card-content>
-    Here's a small text description for the card content. Nothing more, nothing less.
-  </ion-card-content>
-</ion-card>
+  @for (item of [1, 2, 3, 4]; track item) {
+
+    <ion-card class="animal-card skeleton-card">
+
+      <div class="animal-container">
+
+        <!-- Imagen skeleton -->
+        <div class="animal-image">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </div>
+
+        <!-- Información skeleton -->
+        <div class="animal-info">
+
+          <ion-card-header>
+
+            <ion-skeleton-text
+              animated
+              class="skeleton-title">
+            </ion-skeleton-text>
+
+            <ion-skeleton-text
+              animated
+              class="skeleton-subtitle">
+            </ion-skeleton-text>
+
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <div class="animal-data">
+
+              <ion-skeleton-text
+                animated
+                class="skeleton-data">
+              </ion-skeleton-text>
+
+              <ion-skeleton-text
+                animated
+                class="skeleton-data">
+              </ion-skeleton-text>
+
+            </div>
+
+          </ion-card-content>
+
+        </div>
+
+      </div>
+
+    </ion-card>
+
+  }
+
+} @else {
+
+  @for (animal of animales; track animal.uuid) {
+
+    <ion-card
+      class="animal-card ion-activatable"
+      (click)="verAnimal(animal.uuid)">
+
+      <ion-ripple-effect></ion-ripple-effect>
+
+      <div class="animal-container">
+
+        <div class="animal-image">
+
+          <ion-img
+            src="assets/images/vaca.jpg"
+            [alt]="animal.nombre">
+          </ion-img>
+
+        </div>
+
+        <div class="animal-info">
+
+          <ion-card-header>
+
+            <ion-card-title>
+              {{ animal.nombre }}
+            </ion-card-title>
+
+            <ion-card-subtitle>
+              {{ animal.Raza }}
+            </ion-card-subtitle>
+
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <div class="animal-data">
+
+              <span>
+                <strong>ID:</strong>
+                {{ animal.id }}
+              </span>
+
+              <span>
+                <strong>Peso:</strong>
+                {{ animal.peso }} kg
+              </span>
+
+            </div>
+
+          </ion-card-content>
+
+        </div>
+
+        <div
+          class="animal-status"
+          [class.activo]="animal.estado === 'Activo'"
+          [class.inactivo]="animal.estado !== 'Activo'">
+
+          {{ animal.estado }}
+
+        </div>
+
+        <div class="animal-arrow">
+
+          <ion-icon
+            name="chevron-forward-outline">
+          </ion-icon>
+
+        </div>
+
+      </div>
+
+    </ion-card>
+
+  }
+
+}

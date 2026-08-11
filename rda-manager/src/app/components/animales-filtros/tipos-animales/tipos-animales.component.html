@@ -1,7 +1,29 @@
-@for (tipo of tiposAnimales; track tipo.id) {
-  <ion-button
-    [class.seleccionado]="tipoSeleccionado === tipo.id"
-    (click)="seleccionarTipo(tipo.id)">
-    {{ tipo.nombre }}
-  </ion-button>
+@if (cargando) {
+
+  <div class="tipos-skeleton">
+
+    @for (item of [1, 2, 3, 4]; track item) {
+
+      <ion-button class="tipo-skeleton" disabled>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-button>
+
+    }
+
+  </div>
+
+} @else {
+
+  @for (tipo of tiposConTodos; track tipo.id) {
+
+    <ion-button
+      [class.seleccionado]="tipoSeleccionado === tipo.id"
+      (click)="seleccionarTipo(tipo.id)">
+
+      {{ tipo.nombre }}
+
+    </ion-button>
+
+  }
+
 }

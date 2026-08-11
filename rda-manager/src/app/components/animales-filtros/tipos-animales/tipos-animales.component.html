@@ -1,0 +1,7 @@
+@for (tipo of tiposAnimales; track tipo.id) {
+  <ion-button
+    [class.seleccionado]="tipoSeleccionado === tipo.id"
+    (click)="seleccionarTipo(tipo.id)">
+    {{ tipo.nombre }}
+  </ion-button>
+}

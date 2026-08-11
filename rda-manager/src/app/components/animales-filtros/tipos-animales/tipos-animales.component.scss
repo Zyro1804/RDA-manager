@@ -1,0 +1,11 @@
+ion-button {
+  --background: #e5e5e5;
+  --color: #555;
+  --border-radius: 12px;
+  --box-shadow: none;
+}
+
+ion-button.seleccionado {
+  --background: #0054e9;
+  --color: #fff;
+}

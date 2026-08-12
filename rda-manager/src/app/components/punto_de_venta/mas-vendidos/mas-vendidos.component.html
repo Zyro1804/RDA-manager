@@ -1,0 +1,65 @@
+<ion-card class="card-productos">
+
+  <ion-card-header>
+    <ion-card-title class="titulo">
+      ACCESOS RÁPIDOS
+    </ion-card-title>
+
+    <ion-card-subtitle>
+      Más vendidos
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    @for (producto of productos; track producto.id) {
+
+      <div class="producto">
+
+        <!-- Imagen -->
+        <div class="producto-imagen">
+          <ion-img [src]="producto.imagen"></ion-img>
+        </div>
+
+        <!-- Información -->
+        <div class="producto-info">
+
+          <div class="producto-nombre">
+            {{ producto.nombre }}
+          </div>
+
+          <div class="producto-categoria">
+            {{ producto.categoria }}
+          </div>
+
+          <div class="producto-peso">
+            {{ producto.peso }} {{ producto.unidad }}
+          </div>
+
+        </div>
+
+        <!-- Stock y botón -->
+        <div class="producto-acciones">
+
+          <div class="stock">
+            <span>Stock:</span>
+            <strong>{{ producto.stock }}</strong>
+          </div>
+
+          <ion-button
+            size="small"
+            fill="solid"
+           >
+            <ion-icon name="add-outline"></ion-icon>
+            Añadir
+          </ion-button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </ion-card-content>
+
+</ion-card>

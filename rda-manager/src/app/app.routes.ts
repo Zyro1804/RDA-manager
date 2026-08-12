@@ -58,9 +58,29 @@ export const routes: Routes = [
     loadComponent:() => import('./pages/punto_de_venta/home/home.component').then((m)=> m.HomeComponent),
     children:[
       {
-        path:'venta',
+        path:'inicio',
         loadComponent: ()=>
-          import('./pages/punto_de_venta/home/venta/venta.component').then((m)=>m.VentaComponent),
+          import('./pages/punto_de_venta/home/inicio/inicio.component').then((m)=>m.InicioComponent),
+      },
+      {
+        path:'inventario',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/inventario/inventario.component').then((m)=>m.InventarioComponent),
+      },
+      {
+        path:'caja',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/caja/caja.component').then((m)=>m.CajaComponent),
+      },
+      {
+        path:'ventas',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/ventas/ventas.component').then((m)=>m.VentasComponent),
+      },
+         {
+        path:'perfil',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/perfil/perfil.component').then((m)=>m.PerfilComponent),
       },
     ]
     

@@ -1,0 +1,54 @@
+<ion-card class="transacciones-card">
+
+  <ion-card-header class="transacciones-header">
+
+    <div class="transacciones-header">
+
+      <ion-card-title class="titulo">
+        TRANSACCIONES RECIENTES
+      </ion-card-title>
+
+      <ion-button
+        fill="clear"
+        size="small"
+        class="btn-ver-todas">
+        Ver todas
+      </ion-button>
+
+    </div>
+  </ion-card-header>
+
+
+  <ion-card-content>
+
+    <div class="transacciones-list">
+
+      @for (transaccion of transacciones; track transaccion.id) {
+
+        <div class="transaccion">
+
+          <div class="transaccion-info">
+
+            <span class="ticket">
+              Ticket #{{ transaccion.id }}
+            </span>
+
+            <span class="detalle">
+              {{ transaccion.hora }} • {{ transaccion.metodoPago }}
+            </span>
+
+          </div>
+
+          <span class="monto">
+            +${{ transaccion.monto | number:'1.2-2' }}
+          </span>
+
+        </div>
+
+      }
+
+    </div>
+
+  </ion-card-content>
+
+</ion-card>

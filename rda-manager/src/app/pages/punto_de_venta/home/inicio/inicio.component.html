@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header">
+      <ion-title>
+        Hola, Jorge
+      </ion-title>
+      <ion-chip>
+        Admin
+      </ion-chip>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="titulo-fecha">
+    <p>Resumen de Ventas</p>
+    <ion-chip>
+      Hoy, {{ fechaCorta }}
+    </ion-chip>
+  </div>
+  <ion-card class="card-ventas">
+    <ion-card-header>
+      <ion-card-title>VENTAS DE HOY</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="venta-resumen">
+        <div class="venta-cantidad">
+          $12,850.00
+        </div>
+        <div class="venta-crecimiento">
+          <ion-icon name="trending-up-outline"></ion-icon>
+          <span>+12.5%</span>
+        </div>
+      </div>
+      <div class="venta-descripcion">
+        Comparado con ayer
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="card-nueva-venta" (click)="nuevaVenta()">
+    <div class="nueva-venta">
+      <div class="icono-venta">
+        <ion-icon class="icon-venta" name="bag-handle-outline"></ion-icon>
+      </div>
+      <div class="nueva-venta-info">
+          <ion-card-header>
+
+            <ion-card-title class="titulo-venta">
+              Nueva Venta
+            </ion-card-title>
+
+            <ion-card-subtitle class="subtitulo-venta">
+             Iniciar Transaccion
+            </ion-card-subtitle>
+
+          </ion-card-header>
+      </div>
+      <div class="nueva-arrow">
+        <ion-icon class="arrow" name="arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="cards">
+    <ion-card class="card-modulo">
+      <ion-card-title></ion-card-title>
+      <ion-card-content>
+        <ion-icon class="icon-historial" name="refresh-circle-outline"></ion-icon>
+        <p>Historial de Ventas</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="card-modulo">
+      <ion-card-title></ion-card-title>
+      <ion-card-content>
+        <ion-icon class="icon-corte" name="file-tray-full-outline"></ion-icon>
+        <p>Corte de caja</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <app-mas-vendidos>
+  </app-mas-vendidos>
+  <app-transacciones></app-transacciones>
+</ion-content>

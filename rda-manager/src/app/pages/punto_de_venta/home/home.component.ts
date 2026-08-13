@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { archiveOutline, homeOutline } from 'ionicons/icons';
+import { archiveOutline, cashOutline, fileTrayFullOutline, homeOutline, personCircle } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ export class HomeComponent  implements OnInit {
 
   constructor() { 
     addIcons({
-      homeOutline, archiveOutline
+      homeOutline, archiveOutline , fileTrayFullOutline, cashOutline, personCircle
     })
   }
 

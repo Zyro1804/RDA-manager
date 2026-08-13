@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { arrowForwardOutline, bagHandleOutline, fileTrayFullOutline, refreshCircleOutline, trendingUpOutline } from 'ionicons/icons';
@@ -13,13 +14,17 @@ import { TransaccionesComponent } from 'src/app/components/punto_de_venta/transa
 })
 export class InicioComponent  implements OnInit {
 
-  constructor() {
+  constructor(
+    private router :Router
+  ) {
     addIcons({
       trendingUpOutline, refreshCircleOutline, fileTrayFullOutline, bagHandleOutline, arrowForwardOutline
     })
    }
 
-  ngOnInit() {}
+  ngOnInit(
+    
+  ) {}
 
   fechaActual = new Date();
   fechaCorta = this.fechaActual.toLocaleDateString(undefined, {
@@ -28,6 +33,6 @@ export class InicioComponent  implements OnInit {
 });
 
   nuevaVenta(){
-
+    this.router.navigate(['/punto_de_venta/home/inventario']);
   }
 }

@@ -1,3 +1,28 @@
-<p>
-  inventario works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Almacen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-barra-busqueda
+  [typeButtonClear]="typeButtonSearchBar"
+  [placeHolderText]="placeHolderText"
+  (valueChange)="buscarProducto($event)"
+  ></app-barra-busqueda>
+  @for (producto of productos; track producto.id) {
+
+  <app-card-producto
+    [producto]="producto">
+  </app-card-producto>
+
+}
+
+
+  <!--UN PERMISO PARA CREAR-->
+   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+     <ion-fab-button [routerLink]="['/punto_de_venta/home/inventario/crear']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

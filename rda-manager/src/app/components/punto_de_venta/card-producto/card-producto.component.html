@@ -1,0 +1,86 @@
+<ion-card
+  class="producto-card"
+  [class.agregado]="cantidad > 0">
+
+  <!-- Imagen -->
+  <div class="producto-imagen">
+
+    <ion-img
+      [src]="producto.imagen"
+      [alt]="producto.nombre">
+    </ion-img>
+
+    <!-- Stock -->
+    <div class="stock">
+      Stock: {{ producto.stock }}
+    </div>
+
+    <!-- Cantidad -->
+    @if (cantidad > 0) {
+      <div class="cantidad-badge">
+        {{ cantidad }}
+      </div>
+    }
+
+  </div>
+
+
+  <!-- Información -->
+  <div class="producto-info">
+
+    <div>
+
+      <div class="categoria">
+        {{ producto.categoria }}
+      </div>
+
+      <h3>
+        {{ producto.nombre }}
+      </h3>
+
+    </div>
+
+
+    <!-- Precio + cantidad -->
+    <div class="producto-footer">
+
+      <div class="precio">
+        ${{ producto.precio | number:'1.2-2' }}
+      </div>
+
+
+      <div class="cantidad-control">
+
+        <ion-button
+          class="btn-cantidad btn-restar"
+          fill="clear"
+          (click)="disminuir()"
+          [disabled]="cantidad === 0">
+
+          <ion-icon name="remove"></ion-icon>
+
+        </ion-button>
+
+
+        <span class="cantidad">
+          {{ cantidad }}
+        </span>
+
+
+        <ion-button
+          class="btn-cantidad btn-sumar"
+          fill="clear"
+          (click)="aumentar()"
+          [disabled]="cantidad >= producto.stock">
+
+          <ion-icon name="add"></ion-icon>
+
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-card>

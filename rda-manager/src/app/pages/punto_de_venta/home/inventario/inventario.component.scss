@@ -1,0 +1,23 @@
+.paginacion {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin: 10px 0 20px;
+}
+
+.paginacion span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  padding: 12px;
+}

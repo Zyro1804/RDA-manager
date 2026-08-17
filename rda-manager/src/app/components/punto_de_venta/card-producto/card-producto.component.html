@@ -49,35 +49,31 @@
       </div>
 
 
-      <div class="cantidad-control">
+    <div class="cantidad-control">
 
-        <ion-button
-          class="btn-cantidad btn-restar"
-          fill="clear"
-          (click)="disminuir()"
-          [disabled]="cantidad === 0">
+      <button
+        class="btn-cantidad btn-restar"
+        (click)="disminuir()"
+        [disabled]="cantidad === 0">
 
-          <ion-icon name="remove"></ion-icon>
+        <ion-icon name="remove"></ion-icon>
 
-        </ion-button>
+      </button>
 
+      <span class="cantidad">
+        {{ cantidad }}
+      </span>
 
-        <span class="cantidad">
-          {{ cantidad }}
-        </span>
+      <button
+        class="btn-cantidad btn-sumar"
+        (click)="aumentar()"
+        [disabled]="cantidad >= producto.stock">
 
+        <ion-icon name="add"></ion-icon>
 
-        <ion-button
-          class="btn-cantidad btn-sumar"
-          fill="clear"
-          (click)="aumentar()"
-          [disabled]="cantidad >= producto.stock">
+      </button>
 
-          <ion-icon name="add"></ion-icon>
-
-        </ion-button>
-
-      </div>
+    </div>
 
     </div>
 

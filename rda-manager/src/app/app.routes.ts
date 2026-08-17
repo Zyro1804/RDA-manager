@@ -82,13 +82,19 @@ export const routes: Routes = [
         loadComponent: ()=>
           import('./pages/punto_de_venta/home/perfil/perfil.component').then((m)=>m.PerfilComponent),
       },
-           {
+      
+      {
         path: '',
         redirectTo: 'inicio',
         pathMatch: 'full'
       }
     ]
     
-  }
+  },
+  {
+        path:'punto_de_venta/home/modulo_venta/venta',
+        loadComponent: ()=>
+          import('./pages/punto_de_venta/home/modulo_venta/venta/venta.component').then((m)=>m.VentaComponent),
+    },
   
 ];

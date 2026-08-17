@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { addOutline } from 'ionicons/icons';
@@ -11,6 +11,7 @@ import { addOutline } from 'ionicons/icons';
 })
 export class MasVendidosComponent  implements OnInit {
 
+  @Output() agregarItems= new EventEmitter<any>();
   constructor() {
     addIcons({
       addOutline
@@ -26,7 +27,7 @@ export class MasVendidosComponent  implements OnInit {
     peso: 20,
     unidad: 'L',
     stock: 15,
-    imagen: 'assets/images/leche.jpg'
+    imagen: 'assets/images/alimento.jpg'
   },
   {
     id: 2,
@@ -44,7 +45,12 @@ export class MasVendidosComponent  implements OnInit {
     peso: 500,
     unidad: 'g',
     stock: 24,
-    imagen: 'assets/images/queso.jpg'
+    imagen: 'assets/images/alimento.jpg'
   }
 ];
+
+  itemAgregarCarrito(){
+    console.log('esta agregando')
+    this.agregarItems.emit()
+  }
 }

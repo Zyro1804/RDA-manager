@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { add } from 'ionicons/icons';
+import { add, chevronBackOutline, chevronForward } from 'ionicons/icons';
 import { BarraBusquedaComponent } from 'src/app/components/animales-filtros/barra-busqueda/barra-busqueda.component';
 import { CardProductoComponent } from 'src/app/components/punto_de_venta/card-producto/card-producto.component';
 
@@ -19,7 +19,7 @@ export class InventarioComponent  implements OnInit {
   constructor(
   ) { 
     addIcons({
-      add
+      add, chevronBackOutline, chevronForward
     })
   }
   productos = [
@@ -29,7 +29,7 @@ export class InventarioComponent  implements OnInit {
     categoria: 'Veterinaria',
     precio: 450,
     stock: 120,
-    imagen: 'assets/images/vacuna.jpg'
+    imagen: 'assets/images/alimento.jpg'
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ export class InventarioComponent  implements OnInit {
     categoria: 'Veterinaria',
     precio: 320,
     stock: 18,
-    imagen: 'assets/images/desparasitante.jpg'
+    imagen: 'assets/images/alimento.jpg'
   }
 ];
 
@@ -54,5 +54,40 @@ export class InventarioComponent  implements OnInit {
   buscarProducto(event:any){
 
   }
+
+  paginaActual = 1;
+
+productosPorPagina = 6;
+
+get productosPaginados() {
+
+  const inicio = (this.paginaActual - 1) * this.productosPorPagina;
+
+  const fin = inicio + this.productosPorPagina;
+
+  return this.productos.slice(inicio, fin);
+}
+
+get totalPaginas() {
+  return Math.ceil(
+    this.productos.length / this.productosPorPagina
+  );
+}
+
+paginaSiguiente() {
+
+  if (this.paginaActual < this.totalPaginas) {
+    this.paginaActual++;
+  }
+
+}
+
+paginaAnterior() {
+
+  if (this.paginaActual > 1) {
+    this.paginaActual--;
+  }
+
+}
 
 }

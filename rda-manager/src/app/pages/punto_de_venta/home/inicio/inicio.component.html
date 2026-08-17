@@ -80,7 +80,13 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <app-mas-vendidos>
+  <app-mas-vendidos
+  (agregarItems)="agregarItems($event)">
   </app-mas-vendidos>
-  <app-transacciones></app-transacciones>
+  <app-transacciones>
+  </app-transacciones>
+  
 </ion-content>
+@if(hayItems()){
+  <app-carrito></app-carrito>
+}

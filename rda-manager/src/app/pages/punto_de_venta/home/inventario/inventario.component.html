@@ -10,13 +10,42 @@
   [placeHolderText]="placeHolderText"
   (valueChange)="buscarProducto($event)"
   ></app-barra-busqueda>
-  @for (producto of productos; track producto.id) {
+<div class="productos-grid">
 
-  <app-card-producto
-    [producto]="producto">
-  </app-card-producto>
+  @for (producto of productosPaginados; track producto.id) {
 
-}
+    <app-card-producto
+      [producto]="producto"
+      >
+    </app-card-producto>
+
+  }
+
+</div>
+
+<div class="paginacion">
+
+  <ion-button
+    fill="clear"
+    [disabled]="paginaActual === 1"
+    (click)="paginaAnterior()">
+
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </ion-button>
+
+  <span>
+    {{ paginaActual }} / {{ totalPaginas }}
+  </span>
+
+  <ion-button
+    fill="clear"
+    [disabled]="paginaActual === totalPaginas"
+    (click)="paginaSiguiente()">
+
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-button>
+
+</div>
 
 
   <!--UN PERMISO PARA CREAR-->
